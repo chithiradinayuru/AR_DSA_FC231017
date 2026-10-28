@@ -3,27 +3,33 @@ using UnityEngine;
 
 public class StackUIManager : MonoBehaviour
 {
+    public AlgorithmStepUI algorithmStepUI;
+
     public void PushButtonClicked()
     {
-        if (StackController.ActiveStack != null)
+        if (StackController.ActiveStack == null)
         {
-            StackController.ActiveStack.Push();
+            Debug.LogWarning("Place the Stack first!");
+            return;
         }
-        else
+
+        if (algorithmStepUI != null)
         {
-            Debug.LogWarning("Place the Stack on a surface first!");
+            algorithmStepUI.ShowPushAlgorithm();
         }
     }
 
     public void PopButtonClicked()
     {
-        if (StackController.ActiveStack != null)
+        if (StackController.ActiveStack == null)
         {
-            StackController.ActiveStack.Pop();
+            Debug.LogWarning("Place the Stack first!");
+            return;
         }
-        else
+
+        if (algorithmStepUI != null)
         {
-            Debug.LogWarning("Place the Stack on a surface first!");
+            algorithmStepUI.ShowPopAlgorithm();
         }
     }
 }
