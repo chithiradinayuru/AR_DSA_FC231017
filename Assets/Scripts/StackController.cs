@@ -26,7 +26,6 @@ public class StackController : MonoBehaviour
     void Awake()
     {
         ActiveStack = this;
-
         Debug.Log("StackController initialized!");
     }
 
@@ -90,10 +89,9 @@ public class StackController : MonoBehaviour
 
         blocks.Push(newBlock);
         values.Push(value);
-
         nextValue++;
 
-        // Move TOP indicator to the new top block
+        // Update TOP indicator position
         UpdateTopIndicator();
 
         UpdateLearningPanel(
@@ -173,7 +171,7 @@ public class StackController : MonoBehaviour
         GameObject removedBlock = blocks.Pop();
         int removedValue = values.Pop();
 
-        // Move TOP indicator to the next top block
+        // Move TOP indicator to the new top block
         UpdateTopIndicator();
 
         UpdateLearningPanel(
@@ -244,17 +242,18 @@ public class StackController : MonoBehaviour
             return;
         }
 
-        // Hide the indicator when stack is empty
+        // Hide TOP indicator when stack is empty
         if (blocks.Count == 0)
         {
             topIndicator.gameObject.SetActive(false);
             return;
         }
 
+        // Show TOP indicator when blocks exist
         topIndicator.gameObject.SetActive(true);
 
         float yPosition =
-            0.065f + (blocks.Count - 1) * 0.09f;
+            0.065f + (blocks.Count - 1) * 0.09f - 0.025f;
 
         topIndicator.localPosition =
             new Vector3(-0.30f, yPosition, 0f);

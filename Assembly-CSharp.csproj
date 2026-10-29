@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\StackUIManager.cs" />
     <Compile Include="Assets\Settings\Project Configuration\SceneTemplate_RotateCube.cs" />
     <Compile Include="Assets\Scripts\StackController.cs" />
+    <Compile Include="Assets\Scripts\StackQuizManager.cs" />
     <Compile Include="Assets\Scripts\ARObjectPlacement.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\ARPlaneMeshVisualizerFader.cs" />
   </ItemGroup>
